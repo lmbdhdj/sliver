@@ -5,6 +5,7 @@ import 'package:silver/routes/pages.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   //WidgetsFlutterBinding 继承BindingBase,同时有很多binding扩展,这里初始可以深度定制影响这些功能绑定
+  //本地修改测试
   runApp(const GetMaterialApp(
       //GetX初使用
       debugShowCheckedModeBanner: false,
