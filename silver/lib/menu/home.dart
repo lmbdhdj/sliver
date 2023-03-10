@@ -20,11 +20,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(children: [
         Container(
-          height: Get.height * 0.9,
+          height: Get.height * 0.8,
           width: Get.width,
           color: HexColor("#F2F2F2"),
-          child:
-              Center(child: TextButton(onPressed: () {}, child: Text("计算器"))),
+          child: Center(
+              child: TextButton(
+                  onPressed: () {
+                    Get.toNamed("/timeCounter");
+                  },
+                  child: const Text("计时器"))),
         )
       ]),
       floatingActionButton: FloatingActionButton(
