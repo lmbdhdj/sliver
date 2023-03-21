@@ -5,5 +5,7 @@ class Routes {
 
   static const String timeCounter  = "/timeCounter";
 
+  static const String dy = "/douyu";
+
 }
 

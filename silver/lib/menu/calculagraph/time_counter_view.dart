@@ -1,5 +1,7 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 class TimeCounterView extends StatefulWidget {
@@ -16,16 +18,26 @@ class _TimeCounterViewState extends State<TimeCounterView> {
   final StopWatchTimer _countUpTimer =
       StopWatchTimer(mode: StopWatchMode.countDown);
 
+  final GetStorage storageBox = GetStorage();
+
+  String name = Get.parameters["name"]!;
+
   @override
   void initState() {
     super.initState();
     _stopWatchTimer.onStartTimer();
+    var path = storageBox.read("path");
+    if (path != null) {
+      BotToast.showText(text: "$path");
+    } else {
+      storageBox.write("path", "一个路径");
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("计时器功能")),
+      appBar: AppBar(title: Text(name)),
       body: Center(
           child: Column(
               //crossAxisAlignment: CrossAxisAlignment.end,
@@ -34,7 +46,8 @@ class _TimeCounterViewState extends State<TimeCounterView> {
             StreamBuilder<int>(
                 stream: _stopWatchTimer.rawTime,
                 builder: (context, snap) {
-                  return Text("${snap.data}", style: const TextStyle(fontSize: 40));
+                  return Text("${snap.data}",
+                      style: const TextStyle(fontSize: 40));
                 }),
             InkWell(
                 onTap: () {
