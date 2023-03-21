@@ -32,9 +32,17 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  get: ^4.6.5
+  get: ^4.6.5 #getX
 
-  stop_watch_timer: ^2.0.0
+  stop_watch_timer: ^2.0.0 #计数器
+
+  get_storage: ^2.1.1 #get flutter 集成缓存工具
+
+  bot_toast: ^4.0.3 #易用集成toast
+
+  go_router: ^6.2.0
+
+  webview_flutter: ^4.0.7
 
 dev_dependencies:
   flutter_test:
