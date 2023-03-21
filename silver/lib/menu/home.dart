@@ -24,11 +24,18 @@ class _MyHomePageState extends State<MyHomePage> {
           width: Get.width,
           color: HexColor("#F2F2F2"),
           child: Center(
-              child: TextButton(
-                  onPressed: () {
-                    Get.toNamed("/timeCounter");
-                  },
-                  child: const Text("计时器"))),
+              child: Wrap(spacing: 30, runSpacing: 50, children: [
+            TextButton(
+                onPressed: () {
+                  Get.toNamed("/timeCounter", parameters: {"name": "cow"});
+                },
+                child: const Text("计时器")),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed("/douyu", parameters: {"name": "cow"});
+                },
+                child: const Text("DY"))
+          ])),
         )
       ]),
       floatingActionButton: FloatingActionButton(
